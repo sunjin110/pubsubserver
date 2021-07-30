@@ -22,13 +22,11 @@ func server() {
 }
 
 func waitClient(listener net.Listener) {
-
 	for {
 		connection, err := listener.Accept()
 		chk.SE(err)
 		go goEcho(connection) // 別threadでやりとりする
 	}
-
 }
 
 func goEcho(connection net.Conn) {
